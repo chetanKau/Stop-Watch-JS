@@ -1,5 +1,6 @@
 let milSec = 0;
 let timer;
+let btnStart=document.getElementById("start");
 
 document.getElementById("start").addEventListener("click", startTimer);
  document.getElementById("pause").addEventListener("click",pauseTimer);
@@ -10,10 +11,12 @@ document.getElementById("start").addEventListener("click", startTimer);
     milSec=0;
     updateTime(milSec);
     document.getElementById("miliSec").innerText =0+"0";
+    btnStart.disabled=false;
  }
 
 function pauseTimer(){
     clearInterval(timer);
+    btnStart.disabled=false;
 }
 
 function startTimer() {
@@ -21,6 +24,7 @@ function startTimer() {
         milSec += 10;
         updateTime(milSec)
     }, 10)
+    btnStart.disabled=true;
     
 }
 
